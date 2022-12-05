@@ -15,7 +15,7 @@ app.use(compression());
 app.use(helmet());
 app.use(routes);
 app.use(errorHandler);
-app.use (logger);
+
 
 process.on('uncaughtException', (error)=>{
     logger.error('uncaughtException = ', error);
@@ -31,10 +31,10 @@ process.on('uncaughtException', (error)=>{
 
 //Listener WebServer Express
 const NODE_PORT = 3001;
-app.listen(NODE_PORT, ()=>{
-    console.log(`Escuchando puerto ${NODE_PORT}`);
+//app.listen(NODE_PORT, ()=>{
+  //  console.log(`Escuchando puerto ${NODE_PORT}`);
 
-});
+//});
 
 app.listen(NODE_PORT, () => {
     console.log("port listening " + NODE_PORT);
