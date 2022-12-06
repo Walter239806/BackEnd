@@ -1,5 +1,5 @@
 import express from 'express';
-import {TEST} from '../controllers/users.js';
+import {CREATEPOST} from '../controllers/post.js';
 
 const router = express.Router();
 const APP_NAME= "nodejs app";
@@ -14,7 +14,10 @@ router.get("/healthcheck",(_, res)=>{
     })
 })
 
-router.post('/test', TEST);
+//router.post('/test', TEST);
+router.post('/post/create', CREATEPOST);
 
 export default router;
+
+
 
