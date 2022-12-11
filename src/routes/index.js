@@ -1,5 +1,7 @@
 import express from 'express';
-import {CREATEPOST} from '../controllers/post.js';
+import {CREATE, UPDATE} from '../controllers/post.js';
+import {CREATEUSR, UPDATEUSR, DELETEUSR} from '../controllers/user.js';
+
 
 const router = express.Router();
 const APP_NAME= "nodejs app";
@@ -15,7 +17,14 @@ router.get("/healthcheck",(_, res)=>{
 })
 
 //router.post('/test', TEST);
-router.post('/post/create', CREATEPOST);
+router.post('/post/create', CREATE);
+router.post('/post/update', UPDATE);
+
+
+//router.users
+router.post('/user/create', CREATEUSR);
+router.post('/user/update', UPDATEUSR);
+router.post('/user/delete', DELETEUSR);
 
 export default router;
 

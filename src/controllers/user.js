@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import Model from "../model/post.js";
+import Model from "../model/user.js";
 
-export const CREATE = async (req, res, next) => {
+export const CREATEUSR = async (req, res, next) => {
 
     try {
 
@@ -30,7 +30,7 @@ export const CREATE = async (req, res, next) => {
 
 }
 
-export const UPDATE = async (req, res, next) => {
+export const UPDATEUSR = async (req, res, next) => {
 
     try {
 
@@ -64,5 +64,38 @@ export const UPDATE = async (req, res, next) => {
 
 
     }
+
+}
+
+export const DELETEUSR = async (req, res, next) => {
+    try {
+
+        const input = req.body;
+        console.log("input:", input);
+
+        const response = await Model.deleteOne({
+
+            _id : input._id
+
+        },
+        
+        {... input}
+        
+        )
+
+        console.log("result", response);
+
+        res.send('ok');
+       
+    } catch (error) {
+        return next({
+
+            Code:503,
+            message: error.message
+          
+        });
+    }
+
+
 
 }

@@ -624,3 +624,140 @@
 {"app":"nodejs-app","level":"info","message":"Connecting to DB"}
 {"app":"nodejs-app","level":"info","message":"Database connected"}
 {"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"_message":"Post validation failed","app":"nodejs-app","errors":{"autor":{"kind":"required","message":"Author is required","name":"ValidatorError","path":"autor","properties":{"message":"Author is required","path":"autor","type":"required"}}},"level":"error","message":"unhandledRejection! : Post validation failed: autor: Author is required","stack":"ValidationError: Post validation failed: autor: Author is required\n    at Document.invalidate (/home/walter/proyectoBackend/node_modules/mongoose/lib/document.js:3123:32)\n    at /home/walter/proyectoBackend/node_modules/mongoose/lib/document.js:2911:17\n    at /home/walter/proyectoBackend/node_modules/mongoose/lib/schematype.js:1349:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"error","message":"error message= "}
+{"app":"nodejs-app","level":"error","message":"error code= "}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"error","message":"error message= "}
+{"app":"nodejs-app","level":"error","message":"error code= "}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"error","message":"error message= "}
+{"app":"nodejs-app","level":"error","message":"error code= "}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}

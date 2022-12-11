@@ -8,7 +8,7 @@ const postSchema = new  Schema({
         unique:true,
 
     },
-    autor:{
+    author:{
 
         type:String,
         required: [true, 'Author is required'],
