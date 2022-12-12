@@ -761,3 +761,6 @@
 {"app":"nodejs-app","level":"info","message":"Connecting to DB"}
 {"app":"nodejs-app","level":"info","message":"Database connected"}
 {"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
+{"app":"nodejs-app","level":"info","message":"Connecting to DB"}
+{"app":"nodejs-app","level":"info","message":"Database connected"}
+{"app":"nodejs-app","level":"info","message":"Listening to port 3001"}
