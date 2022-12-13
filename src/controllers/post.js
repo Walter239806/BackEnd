@@ -1,3 +1,4 @@
+// import mongoose from 'mongoose'
 import Model from '../model/post.js'
 
 export const CREATE = async (req, res, next) => {
@@ -22,7 +23,7 @@ export const CREATE = async (req, res, next) => {
 export const UPDATE = async (req, res, next) => {
   try {
     const input = req.body
-    console.log('input:', input)
+    // console.log('input:', input)
 
     const response = await Model.updateOne(
       {
@@ -32,7 +33,7 @@ export const UPDATE = async (req, res, next) => {
       { ...input }
     )
 
-    console.log('result', response)
+    // console.log('result', response)
 
     res.send('ok')
   } catch (error) {
