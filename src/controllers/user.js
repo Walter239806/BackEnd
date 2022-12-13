@@ -79,7 +79,6 @@ export const DELETEUSR = async (req, res, next) => {
 
         },
         
-        {... input}
         
         )
 
