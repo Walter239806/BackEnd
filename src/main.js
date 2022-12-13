@@ -1,6 +1,4 @@
-import express from 'express'
 import helmet from 'helmet'
-import cors from 'cors'
 import compression from 'compression'
 import cookieParser from 'cookie-parser'
 import routes from './routes/index.js'
