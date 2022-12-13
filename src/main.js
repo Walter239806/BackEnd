@@ -7,7 +7,7 @@ import routes from './routes/index.js'
 import { errorHandler } from './middlewares/basicErrorHandlers.js'
 import { logger } from './tools/basiclogs.js'
 import config from './config/index.js'
-import database from './database/indejs'
+import database from './database/index.js'
 
 // middleware
 const app = express()
