@@ -68,13 +68,6 @@
         "LabeledStatement",
         "WithStatement"
       ],
-      "no-unused-vars": [
-        1,
-        {
-          "ignoreSiblings": true,
-          "argsIgnorePattern": "res|next|^err|item|_|__"
-        }
-      ],
       "import": 0,
       "no-shadow": [
         2,
@@ -145,14 +138,15 @@
         1,
         22
       ]
-    },
-    "husky":{
-      "hooks":{
-        "pre-commit":"lint-staged"
-      }
-    },
-    "lint-staged":{
-      "*.js": "eslint --cache --fix"
     }
+    
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }
