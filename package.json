@@ -146,12 +146,12 @@
           "argsIgnorePattern": "res|next|^err|item|_|__"
         }
       ]
+    },
+    "lint-staged": {
+      "*.{js,jsx,ts,tsx}": [
+        "prettier --write",
+        "eslint --fix"
+      ]
     }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
-    ]
   }
 }
