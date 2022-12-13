@@ -6,9 +6,9 @@ import routes from './routes/index.js'
 import { errorHandler } from './middlewares/basicErrorHandlers.js'
 import { logger } from './tools/basiclogs.js'
 import config from './config/index.js'
-import database from './database/index.js'
+import database from './database/i'
 
-//middleware
+// middleware
 const app = express()
 
 app.use(express.json())
@@ -28,16 +28,17 @@ process.on('unhandledRejection', error => {
   process.exit(1)
 })
 
-//Listener WebServer Express
-//const NODE_PORT = 3001;
-//app.listen(NODE_PORT, ()=>{
-//  console.log(`Escuchando puerto ${NODE_PORT}`);
+// Listener WebServer Express
+// const NODE_PORT = 3001;
+// app.listen(NODE_PORT, ()=>{
+// console.log(`Escuchando puerto ${NODE_PORT}`);
 
-//});
+//  });
 
 database.setConnection().then(() => {
   app.listen(config.NODE_PORT, () => {
-    //console.log("port listening " + config.NODE_PORT);
+    // console.log("port listening " + config.NODE_PORT);
+
     logger.info(`Listening to port ${config.NODE_PORT}`)
   })
 })
