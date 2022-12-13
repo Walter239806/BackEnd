@@ -69,6 +69,13 @@
         "LabeledStatement",
         "WithStatement"
       ],
+      "no-unused-vars": [
+        1,
+        {
+          "ignoreRestSiblings": true,
+          "argsIgnorePattern": "res|next|^err|item|_|__"
+        }
+      ],
       "import": 0,
       "no-shadow": [
         2,
