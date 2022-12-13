@@ -1,68 +1,45 @@
-import mongoose from "mongoose";
-import Model from "../model/post.js";
+import mongoose from 'mongoose'
+import Model from '../model/post.js'
 
 export const CREATE = async (req, res, next) => {
+  try {
+    const input = req.body
+    console.log('input:', input)
 
-    try {
+    const newPost = new Model(input)
+    const result = await newPost.save()
 
-        const input = req.body;
-        console.log("input:", input);
+    console.log('result', result)
 
-        const newPost = new Model(input);
-        const result = await newPost.save();
-
-        console.log("result", result);
-
-        res.send('ok');
-
-        
-    } catch (error) {
-        
-        return next({
-
-            Code:501,
-            message: error.message
-          
-        });
-
-
-    }
-
+    res.send('ok')
+  } catch (error) {
+    return next({
+      Code: 501,
+      message: error.message
+    })
+  }
 }
 
 export const UPDATE = async (req, res, next) => {
+  try {
+    const input = req.body
+    console.log('input:', input)
 
-    try {
+    const response = await Model.updateOne(
+      {
+        _id: input._id
+      },
 
-        const input = req.body;
-        console.log("input:", input);
+      { ...input }
+    )
 
-        const response = await Model.updateOne(
-                {
-                    _id: input._id
+    console.log('result', response)
 
-                },
-                
-        {... input}             
-
-
-        )
-
-        console.log("result", response);
-
-        res.send('ok');
-
-        
-    } catch (error) {
-        
-        return next({
-
-            Code:502,
-            message: error.message
-          
-        });
-
-
-    }
-
+    res.send('ok')
+  } catch (error) {
+    return next({
+      Code: 502,
+      message: error.message
+    })
+  }
 }
