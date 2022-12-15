@@ -1,4 +1,3 @@
-// import mongoose from 'mongoose'
 import Model from '../model/post.js'
 
 export const CREATE = async (req, res, next) => {
