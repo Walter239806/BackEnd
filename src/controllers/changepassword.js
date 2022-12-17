@@ -9,9 +9,9 @@ export const changePass = async (req, res, next) => {
     const validPassword = await bcrypt.compare(input.password, pass)
     if (validPassword) {
       if (input.newP === input.confirmP) {
-        // if (bcrypt.compare(input.newP === pass)) {
-        //   return res.send({ response: 'Password es igual al antiguo' })
-        // }
+        const checkNewP = await bcrypt.compare(input.newP, pass)
+        if (checkNewP) return res.send({ response: 'Password es igual al antiguo' })
+
         await Model.updateOne(
           {
             _id: input._id

@@ -2,6 +2,7 @@ import express from 'express'
 import helmet from 'helmet'
 import cors from 'cors'
 import compression from 'compression'
+import cookieParser from 'cookie-parser'
 import routes from './routes/index.js'
 import { errorHandler } from './middlewares/basicErrorHandlers.js'
 import { logger } from './tools/basiclogs.js'
@@ -15,6 +16,7 @@ app.use(express.json())
 app.use(cors())
 app.use(compression())
 app.use(helmet())
+app.use(cookieParser())
 app.use(routes)
 app.use(errorHandler)
 
