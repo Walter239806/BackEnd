@@ -27,8 +27,6 @@ export const CREATEUSR = async (req, res, next) => {
 export const UPDATEUSR = async (req, res, next) => {
   try {
     const input = req.body
-    console.log('input:', input)
-
     const response = await Model.updateOne(
       {
         _id: input._id
@@ -36,8 +34,6 @@ export const UPDATEUSR = async (req, res, next) => {
 
       { ...input }
     )
-
-    console.log('result', response)
 
     return res.send({ response: !!response.modifiedCount })
   } catch (error) {
