@@ -6,21 +6,21 @@ export const createToken = Model => {
   return access
 }
 
-export const validateToken = (req, res, next) => {
+export const validateToken = cookies => {
   // eslint-disable-next-line dot-notation
-  const accessToken = req.cookies['access']
-  if (!accessToken) return res.send({ response: 'No token' })
+  const accessToken = cookies['access-token']
+  // console.log(cookies)
+  if (!accessToken) return false
 
   try {
     const validToken = jwt.verify(accessToken, config.JWTSecret)
     if (validToken) {
-      req.authenticated = true
-      return next()
+      return true
     }
   } catch (error) {
-    return next({
+    return {
       Code: 400,
       message: error.message
-    })
+    }
   }
 }

@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs'
 import cookie from 'cookie-parser'
 import Model from '../model/user.js'
-import { createToken, validateToken } from '../tools/JWT.js'
+import { createToken } from '../tools/JWT.js'
 
 export const loginJWT = async (req, res, next) => {
   try {
