@@ -33,7 +33,7 @@ process.on('unhandledRejection', error => {
 // Listener WebServer Express
 // const NODE_PORT = 3001;
 // app.listen(NODE_PORT, ()=>{
-// console.log(`Escuchando puerto ${NODE_PORT}`);
+// console.log(`Escuchando puerto ${NODE_PORT}`)
 
 //  });
 

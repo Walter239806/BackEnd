@@ -1,10 +1,10 @@
 import express from 'express'
+import { validate } from '../controllers/profile.js'
+import { loginJWT } from '../controllers/loginJWT.js'
 import { CREATE, UPDATE } from '../controllers/post.js'
 import { CREATEUSR, UPDATEUSR, DELETEUSR } from '../controllers/user.js'
 import { changePass } from '../controllers/changepassword.js'
 import { login } from '../controllers/login.js'
-import { loginJWT } from '../controllers/loginJWT.js'
-import { validate } from '../controllers/profile.js'
 
 const router = express.Router()
 const APP_NAME = 'nodejs app'
@@ -27,6 +27,7 @@ router.post('/user/update', UPDATEUSR)
 router.post('/user/delete', DELETEUSR)
 
 // router.changepassword
+
 router.post('/user/changeP', changePass)
 
 // router.login
