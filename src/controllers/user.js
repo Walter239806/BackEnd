@@ -13,7 +13,8 @@ export const CREATEUSR = async (req, res, next) => {
     await newPost.save()
 
     return res.send({
-      response: 'User created'
+      response: 'User created',
+      _id: input._id
     })
   } catch (error) {
     return next({
@@ -46,6 +47,7 @@ export const UPDATEUSR = async (req, res, next) => {
 export const DELETEUSR = async (req, res, next) => {
   try {
     const input = req.body
+    // console.log('input:', input)
 
     const response = await Model.deleteOne({
       _id: input._id

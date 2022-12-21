@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs'
-import cookie from 'cookie-parser'
+// import cookie from 'cookie-parser'
 import Model from '../model/user.js'
 import { createToken } from '../tools/JWT.js'
 
