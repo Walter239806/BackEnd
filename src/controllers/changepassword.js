@@ -4,6 +4,8 @@ import Model from '../model/user.js'
 export const changePass = async (req, res, next) => {
   try {
     const input = req.body
+    // TODO: cambiar a findOne
+    // TODO: comparar username
     const valor = await Model.find({ _id: input._id }).lean()
     const pass = valor[0].password
     const validPassword = await bcrypt.compare(input.password, pass)
