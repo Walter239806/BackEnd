@@ -5,7 +5,7 @@ export const CREATEUSR = async (req, res, next) => {
   try {
     const input = req.body
     // eslint-disable-next-line no-console
-    console.log('input:', input)
+    //  console.log('input:', input)
 
     input.password = bcrypt.hashSync(input.password, 12)
 
