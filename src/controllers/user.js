@@ -24,9 +24,10 @@ export const CREATEUSR = async (req, res, next) => {
 export const UPDATEUSR = async (req, res, next) => {
   try {
     const input = req.body
+    input.password = bcrypt.hashSync(input.password, 12)
     const response = await Model.updateOne(
       {
-        _id: input._id
+        username: input.username
       },
 
       { ...input }
@@ -45,7 +46,7 @@ export const DELETEUSR = async (req, res, next) => {
   try {
     const input = req.body
     const response = await Model.deleteOne({
-      _id: input._id
+      username: input.username
     })
 
     return res.send({ response: !!response.deletedCount })

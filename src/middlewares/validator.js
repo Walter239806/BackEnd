@@ -1,18 +1,18 @@
-import express from 'express-validator'
+import validates from 'express-validator'
 
-const checkField = (req, res, next) => {
-  const input = req.body
-  const validates = input.password.isLenght({ min: 5 })
+export const validateUSR = async (req, res, next) => {
+  await validates.body('fullname').notEmpty().isString().isLength({ min: 3 }).withMessage('Invalid fullname').run(req)
+  await validates.body('password').trim().notEmpty().isLength({ min: 8, max: 20 }).withMessage('Invalid password').run(req)
+  await validates.body('username').trim().notEmpty().isLength({ min: 5 }).withMessage('Invalid username').run(req)
 
-  if (!validates) {
-    return next({
-      status: 498,
-      code: 2001,
-      message: `TOKEN indefinido desde ${req.protocol}://${req.get('host')}${req.originalUrl}`,
-      userMessage: `Token indefinido`
-    })
+  const result = validates.validationResult(req).array()
+  if (!result.length) {
+    return next()
   }
-
-  next()
+  return next({
+    status: 498,
+    code: 2001,
+    message: result,
+    userMessage: `Invalid fields`
+  })
 }
-export default checkField
