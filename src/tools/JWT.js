@@ -6,16 +6,41 @@ export const createToken = Model => {
   return access
 }
 
-export const validateToken = cookies => {
-  // eslint-disable-next-line dot-notation
-  const accessToken = cookies['access-token']
-  // console.log(cookies)
-  if (!accessToken) return false
+// export const validateToken = cookies => {
+//   // eslint-disable-next-line dot-notation
+//   const accessToken = cookies['access-token']
+//   // console.log(cookies)
+//   if (!accessToken) return false
 
+//   try {
+//     const validToken = jwt.verify(accessToken, config.JWTSecret)
+//     if (validToken) {
+//       return true
+//     }
+//   } catch (error) {
+//     return {
+//       Code: 400,
+//       message: error.message
+//     }
+//   }
+// }
+
+const validateTokenM = (req, res, next) => {
   try {
+    // eslint-disable-next-line dot-notation
+    const accessToken = req.cookies['access-token']
+    // console.log(cookies)
+    if (!accessToken)
+      return next({
+        status: 498,
+        code: 2001,
+        message: `TOKEN indefinido desde ${req.protocol}://${req.get('host')}${req.originalUrl}`,
+        userMessage: `Token indefinido`
+      })
+
     const validToken = jwt.verify(accessToken, config.JWTSecret)
     if (validToken) {
-      return true
+      return next()
     }
   } catch (error) {
     return {
@@ -24,3 +49,5 @@ export const validateToken = cookies => {
     }
   }
 }
+
+export default validateTokenM
