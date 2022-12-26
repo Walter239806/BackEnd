@@ -27,9 +27,7 @@ export const createToken = Model => {
 
 const validateTokenM = (req, res, next) => {
   try {
-    // eslint-disable-next-line dot-notation
     const accessToken = req.cookies['access-token']
-    // console.log(cookies)
     if (!accessToken)
       return next({
         status: 498,

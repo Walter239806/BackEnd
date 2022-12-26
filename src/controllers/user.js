@@ -4,9 +4,6 @@ import Model from '../model/user.js'
 export const CREATEUSR = async (req, res, next) => {
   try {
     const input = req.body
-    // eslint-disable-next-line no-console
-    //  console.log('input:', input)
-
     input.password = bcrypt.hashSync(input.password, 12)
 
     const newPost = new Model(input)
@@ -47,8 +44,6 @@ export const UPDATEUSR = async (req, res, next) => {
 export const DELETEUSR = async (req, res, next) => {
   try {
     const input = req.body
-    // console.log('input:', input)
-
     const response = await Model.deleteOne({
       _id: input._id
     })

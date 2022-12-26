@@ -1,13 +1,13 @@
 import express from 'express'
 import { profile } from '../controllers/profile.js'
-// TODO: cambiar validate a middleware y utilizarlo en las rutas.
+// TODO✓: cambiar validate a middleware y utilizarlo en las rutas.
 import { loginJWT } from '../controllers/loginJWT.js'
 import { CREATE, UPDATE } from '../controllers/post.js'
 import { CREATEUSR, UPDATEUSR, DELETEUSR } from '../controllers/user.js'
 import { changePass } from '../controllers/changepassword.js'
 import { login } from '../controllers/login.js'
 import checkToken from '../middlewares/token.js'
-import validateTokenM from '../tools/JWT.js'
+import validateTokenM from '../middlewares/JWT.js'
 
 const router = express.Router()
 const APP_NAME = 'nodejs app'
@@ -20,7 +20,6 @@ router.get('/healthcheck', (_, res) => {
   })
 })
 
-// router.post('/test', TEST);
 router.post('/post/create', checkToken, CREATE)
 router.post('/post/update', UPDATE)
 
@@ -31,7 +30,6 @@ router.post('/user/update', UPDATEUSR)
 router.post('/user/delete', DELETEUSR)
 
 // router.changepassword
-
 router.post('/user/changeP', changePass)
 
 // router.login
