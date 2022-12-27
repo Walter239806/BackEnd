@@ -1,5 +1,4 @@
 import express from 'express'
-
 import { profile } from '../controllers/profile.js'
 import { loginJWT } from '../controllers/loginJWT.js'
 import * as postController from '../controllers/post.js'
