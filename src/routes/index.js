@@ -23,6 +23,7 @@ router.get('/healthcheck', (_, res) => {
 
 router.post('/post/create', checkToken, CREATE)
 router.post('/post/update', UPDATE)
+router.post('')
 
 // router.users
 // TODO✓: validar campos requeridos: username - password - fullname (express-validator)

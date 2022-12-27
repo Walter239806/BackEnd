@@ -42,3 +42,28 @@ export const UPDATE = async (req, res, next) => {
     })
   }
 }
+
+export const READALL = async (req, res, next) => {
+  try {
+    const find = await Model.find()
+    return res.sent(find)
+  } catch (error) {
+    return next({
+      Code: 502,
+      message: error.message
+    })
+  }
+}
+
+export const READBYID = async (req, res, next) => {
+  try {
+    const { _id } = req.body
+    const find = await Model.findById({ _id })
+    return res.sent(find)
+  } catch (error) {
+    return next({
+      Code: 502,
+      message: error.message
+    })
+  }
+}

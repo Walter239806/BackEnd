@@ -25,7 +25,7 @@ export const createToken = Model => {
 //   }
 // }
 
-const validateTokenM = (req, res, next) => {
+const validateTokenC = (req, res, next) => {
   try {
     const accessToken = req.cookies['access-token']
     if (!accessToken)
@@ -48,4 +48,4 @@ const validateTokenM = (req, res, next) => {
   }
 }
 
-export default validateTokenM
+export default validateTokenC
