@@ -22,6 +22,7 @@ router.get('/healthcheck', (_, res) => {
 
 router.post('/post/create', checkToken, CREATE)
 router.post('/post/update', UPDATE)
+
 router.get('/post/readAll', validateTokenC, READALL)
 router.post('/post/readAll', validateTokenC, READBYID)
 
