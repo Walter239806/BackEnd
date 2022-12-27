@@ -7,6 +7,8 @@ export const loginJWT = async (req, res, next) => {
   try {
     const input = req.body
     const user = await Model.findOne({ username: input.username })
+
+    console.log('user :>> ', user)
     // const size = Object.keys(user).lenght
     if (user != null) {
       const pass = user.password
