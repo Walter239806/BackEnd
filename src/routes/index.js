@@ -1,13 +1,15 @@
 import express from 'express'
+
 import { profile } from '../controllers/profile.js'
 import { loginJWT } from '../controllers/loginJWT.js'
-import { CREATE, UPDATE, READALL, READBYID } from '../controllers/post.js'
+import * as postController from '../controllers/post.js'
 import { CREATEUSR, UPDATEUSR, DELETEUSR } from '../controllers/user.js'
 import { changePass } from '../controllers/changepassword.js'
 import { login } from '../controllers/login.js'
-import checkToken from '../middlewares/token.js'
+// import checkToken from '../middlewares/token.js'
 import validateTokenC from '../middlewares/JWT.js'
 import { validateUSR } from '../middlewares/validator.js'
+import { validate } from '../middlewares/validate.js'
 
 const router = express.Router()
 const APP_NAME = 'nodejs app'
@@ -20,11 +22,11 @@ router.get('/healthcheck', (_, res) => {
   })
 })
 
-router.post('/post/create', checkToken, CREATE)
-router.post('/post/update', UPDATE)
+router.post('/post/create', validateTokenC, postController.createValidation, validate, postController.CREATE)
+router.post('/post/update', validateTokenC, postController.updateValidation, validate, postController.UPDATE)
 
-router.get('/post/readAll', validateTokenC, READALL)
-router.post('/post/readAll', validateTokenC, READBYID)
+router.get('/post/readAll', validateTokenC, postController.READALL)
+router.post('/post/readByID', validateTokenC, postController.readByIDValidation, validate, postController.READBYID)
 
 // router.users
 // TODO✓: validar campos requeridos: username - password - fullname (express-validator)
