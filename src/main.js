@@ -9,6 +9,9 @@ import { logger } from './tools/basiclogs.js'
 import config from './config/index.js'
 import database from './database/index.js'
 
+// TODO: Unit Testing
+// TODO: Load Testing
+
 // middleware
 const app = express()
 
@@ -44,3 +47,69 @@ database.setConnection().then(() => {
     logger.info(`Listening to port ${config.NODE_PORT}`)
   })
 })
+
+// const person = {
+//   name: 'Carlos',
+//   id: 1
+// }
+
+// Object.keys(person).forEach(key => {
+//   console.log(`key: ${key}`)
+//   console.log('value :>> ', person[key])
+// })
+
+const persons = [
+  {
+    name: 'carlos',
+    id: 1
+  },
+  {
+    name: 'walter',
+    id: 2
+  }
+]
+
+let person = null
+persons.forEach(element => {
+  if (element.name === 'carlos') person = element
+})
+console.log('person forEach :>> ', person)
+
+for (let index = 0; index < persons.length; index += 1) {
+  const element = persons[index]
+  if (element.name === 'carlos') person = element
+}
+console.log('person for :>> ', person)
+
+// functional
+const personObj = persons.find(element => {
+  if (element.name === 'carlos') return element
+})
+console.log('personObj :>> ', personObj)
+personObj.id = 3
+
+const personArray = persons.filter(element => {
+  if (element.id === 2) return element
+})
+console.log('personArray :>> ', personArray)
+
+const personMap = persons.map(element => {
+  element.name = `${element.name} X `
+
+  return element
+})
+console.log('personMap :>> ', personMap)
+
+const personReduce = persons.reduce((acc, element) => {
+  acc += element.id
+
+  return acc
+}, 0)
+console.log('personReduce :>> ', personReduce)
+
+const personReduce2 = persons.reduce(
+  (acc, element) => (acc += `${element.name} `),
+
+  ''
+)
+console.log('personReduce2 :>> ', personReduce2)
