@@ -6,8 +6,9 @@ import { createToken } from '../middlewares/JWT.js'
 export const loginJWT = async (req, res, next) => {
   try {
     const input = req.body
-    // TODO✓: cambiar a findOne
     const user = await Model.findOne({ username: input.username })
+
+    console.log('user :>> ', user)
     // const size = Object.keys(user).lenght
     if (user != null) {
       const pass = user.password

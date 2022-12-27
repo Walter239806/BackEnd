@@ -1,6 +1,5 @@
 import express from 'express'
 import { profile } from '../controllers/profile.js'
-// TODO✓: cambiar validate a middleware y utilizarlo en las rutas.
 import { loginJWT } from '../controllers/loginJWT.js'
 import { CREATE, UPDATE } from '../controllers/post.js'
 import { CREATEUSR, UPDATEUSR, DELETEUSR } from '../controllers/user.js'
