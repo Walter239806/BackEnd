@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { Model } from 'mongoose'
 
 const { Schema } = mongoose
 const postSchema = new Schema(
@@ -20,6 +20,7 @@ const postSchema = new Schema(
       type: String,
       required: [true, 'Text is required']
     }
+
     // TODO: agregar el campo metadata: { hash: String (12345), num: Number }
 
     // TODO: agregar un campo bitacora: [ {  user: String , fecha: date   } ]
