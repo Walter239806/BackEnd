@@ -8,11 +8,9 @@ export const loginJWT = async (req, res, next) => {
     const input = req.body
     const user = await Model.findOne({ username: input.username })
 
-    console.log('user :>> ', user)
-    // const size = Object.keys(user).lenght
+    //  console.log('user :>> ', user)
     if (user != null) {
       const pass = user.password
-      // compareSync
       const validPassword = bcrypt.compareSync(input.password, pass)
 
       if (validPassword) {

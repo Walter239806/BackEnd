@@ -19,7 +19,12 @@ const postSchema = new Schema(
     body: {
       type: String,
       required: [true, 'Text is required']
-    }
+    },
+    metadata: {
+      hash: String,
+      num: Number
+    },
+    bitacora: [{ user: String, fecha: Date }]
 
     // TODO: agregar el campo metadata: { hash: String (12345), num: Number }
 
