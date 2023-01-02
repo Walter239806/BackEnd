@@ -7,7 +7,7 @@ import { changePass } from '../controllers/changepassword.js'
 import { login } from '../controllers/login.js'
 // import checkToken from '../middlewares/token.js'
 import validateTokenC from '../middlewares/JWT.js'
-import { validateUSR } from '../middlewares/validator.js'
+import * as usrValidation from '../middlewares/validator.js'
 import { validate } from '../middlewares/validate.js'
 
 const router = express.Router()
@@ -28,17 +28,16 @@ router.get('/post/readAll', validateTokenC, postController.READALL)
 router.post('/post/readByID', validateTokenC, postController.readByIDValidation, validate, postController.READBYID)
 
 // router.users
-// TODO✓: validar campos requeridos: username - password - fullname (express-validator)
-router.post('/user/create', validateUSR, CREATEUSR)
-router.post('/user/update', validateTokenC, validateUSR, UPDATEUSR)
-router.post('/user/delete', validateTokenC, DELETEUSR)
+router.post('/user/create', usrValidation.vUSRCreate, validate, CREATEUSR)
+router.post('/user/update', validateTokenC, usrValidation.vUSRUpdate, validate, UPDATEUSR)
+router.post('/user/delete', validateTokenC, usrValidation.vUSRDelete, validate, DELETEUSR)
 
 // router.changepassword
-router.post('/user/changeP', validateTokenC, changePass)
+router.post('/user/changeP', validateTokenC, usrValidation.vChangePass, validate, changePass)
 
 // router.login
 router.post('/user/login', login)
-router.post('/user/JWT', loginJWT)
+router.post('/user/JWT', usrValidation.vLogin, validate, loginJWT)
 router.get('/user/profile', validateTokenC, profile)
 
 export default router

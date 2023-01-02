@@ -1,7 +1,9 @@
-// import { validateToken } from '../tools/JWT.js'
+import Model from '../model/user.js'
 
-// export const validate = (req, res, next) => {
-//   if (validateToken(req.cookies)) return res.send({ response: 'user authenticated' })
-//   return res.send({ response: 'User not authorized' })
-// }
-export const profile = (req, res, next) => res.send({ response: 'user authorized' })
+export const profile = async (req, res, next) => {
+  const find = await Model.find()
+  if (find != null) {
+    return res.send(find)
+  }
+  return res.send('No data')
+}

@@ -1,18 +1,28 @@
-import validates from 'express-validator'
+import { check, oneOf } from 'express-validator'
 
-export const validateUSR = async (req, res, next) => {
-  await validates.body('fullname').notEmpty().isString().isLength({ min: 3 }).withMessage('Invalid fullname').run(req)
-  await validates.body('password').trim().notEmpty().isLength({ min: 8, max: 20 }).withMessage('Invalid password').run(req)
-  await validates.body('username').trim().isEmail().notEmpty().isLength({ min: 5 }).withMessage('Invalid username').run(req)
+export const vUSRCreate = [
+  check('username').exists().isEmail().notEmpty().withMessage('Requerido'),
+  check('fullname').exists().isString().isLength({ min: 3 }).withMessage('Requerido'),
+  check('password').exists().isStrongPassword({ minLength: 8, minUppercase: 1, minSymbols: 1 }).withMessage('Requerido')
+]
 
-  const result = validates.validationResult(req).array()
-  if (!result.length) {
-    return next()
-  }
-  return next({
-    status: 498,
-    code: 2001,
-    message: result,
-    userMessage: `Invalid fields`
-  })
-}
+export const vUSRUpdate = [
+  check('username').exists().isEmail().notEmpty().withMessage('Requerido'),
+  oneOf(
+    check('fullname').exists().isString().isLength({ min: 3 }).withMessage('Requerido'),
+    check('password').exists().isStrongPassword({ minLength: 8, minUppercase: 1, minSymbols: 1 }).withMessage('Requerido')
+  )
+]
+
+export const vUSRDelete = [check('username').notEmpty().withMessage('Requerido')]
+
+export const vChangePass = [
+  check('username').exists().isEmail().notEmpty().withMessage('Requerido'),
+  check('confirmP').isStrongPassword({ minLength: 8, minUppercase: 1, minSymbols: 1 }).withMessage('Requerido'),
+  check('newP').isStrongPassword({ minLength: 8, minUppercase: 1, minSymbols: 1 }).withMessage('Requerido')
+]
+
+export const vLogin = [
+  check('username').exists().isEmail().notEmpty().withMessage('Requerido'),
+  check('password').notEmpty().withMessage('Requerido')
+]
