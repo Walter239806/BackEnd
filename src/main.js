@@ -44,6 +44,8 @@ if (!conn) {
 }
 
 const server = app.listen(config.NODE_PORT, () => {
+  // console.log("port listening " + config.NODE_PORT);
+
   logger.info(`Listening to port ${config.NODE_PORT}`)
 })
 
