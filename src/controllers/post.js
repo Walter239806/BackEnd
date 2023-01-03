@@ -4,12 +4,12 @@ import Model from '../model/post.js'
 export const CREATE = async (req, res, next) => {
   try {
     const input = req.body
-    // console.log('input:', input)
+    console.log('input:', input)
 
     const newPost = new Model(input)
-    //    const result = await newPost.save()
+    const result = await newPost.save()
 
-    // console.log('result', result)
+    console.log('result', result)
 
     res.send('ok')
   } catch (error) {

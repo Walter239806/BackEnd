@@ -22,8 +22,8 @@ test('Login', async () => {
 })
 
 describe('Check Posts List', () => {
-  // TODO: test CREATE POST
-  it('create', () => {})
+  // TODO✓: test CREATE POST
+  // it('create', () => {})
   // TODO: test READ BY POST
   it('Finding All posts', async () => {
     const res = await api.get('/post/readAll').set('Cookie', [`access-token=${token}`])
