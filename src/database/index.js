@@ -19,14 +19,18 @@ export default {
       logger.info('Database connected')
     })
 
-    return mongoose.connect(connectionStr, {
-      connectTimeoutMS: 5000,
-      maxPoolSize: 100,
-      writeConcern: {
-        w: 'majority',
-        j: true,
-        wtimeout: 5000
-      }
-    })
+    return mongoose
+      .connect(connectionStr, {
+        connectTimeoutMS: 5000,
+        maxPoolSize: 100,
+        writeConcern: {
+          w: 'majority',
+          j: true,
+          wtimeout: 5000
+        }
+      })
+      .catch(() => {
+        console.log('error 💥')
+      })
   }
 }
