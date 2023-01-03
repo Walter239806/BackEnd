@@ -27,11 +27,6 @@ describe('Check Posts List', () => {
       .post('/post/create')
       .set('Cookie', [`access-token=${token}`])
       .send({ title: 'Jest3', author: 'Jest', state: true, body: 'Test for jest' })
-
-    // .set('title', 'jest2')
-    // .set('author', 'Walter Test')
-    // .set('body', 'This is a test for jest')
-    // .set({ title: 'Jest3', author: 'Jest', state: true, body: 'Test for jest' })
     //  console.log('******************', res)
     expect(res.statusCode).toEqual(200)
   })

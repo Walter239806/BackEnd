@@ -1,15 +1,16 @@
 import { check, oneOf } from 'express-validator'
 import Model from '../model/post.js'
+import { bitacora } from './bitacora.js'
 
 export const CREATE = async (req, res, next) => {
   try {
     const input = req.body
-    console.log('input:', input)
-
     const newPost = new Model(input)
     const result = await newPost.save()
+    const { _id } = result
+    const username = input.author
 
-    console.log('result', result)
+    bitacora(_id, username)
 
     res.send('ok')
   } catch (error) {
