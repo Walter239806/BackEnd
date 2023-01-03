@@ -8,10 +8,6 @@ import { errorHandler } from './middlewares/basicErrorHandlers.js'
 import { logger } from './tools/basiclogs.js'
 import config from './config/index.js'
 import database from './database/index.js'
-
-// TODO: Unit Testing
-// TODO: Load Testing
-
 // middleware
 const app = express()
 
@@ -40,14 +36,18 @@ process.on('unhandledRejection', error => {
 
 //  });
 
-database.setConnection().then(() => {
-  app.listen(config.NODE_PORT, () => {
-    // console.log("port listening " + config.NODE_PORT);
+const conn = database.setConnection()
 
-    logger.info(`Listening to port ${config.NODE_PORT}`)
-  })
+if (!conn) {
+  logger.error('DB Conn error!:')
+  process.exit(1)
+}
+
+const server = app.listen(config.NODE_PORT, () => {
+  logger.info(`Listening to port ${config.NODE_PORT}`)
 })
 
+export { app, server }
 // const person = {
 //   name: 'Carlos',
 //   id: 1
