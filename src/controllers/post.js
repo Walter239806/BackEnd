@@ -1,6 +1,7 @@
 import { check, oneOf } from 'express-validator'
 import Model from '../model/post.js'
 import { bitacora } from './bitacora.js'
+import { MetaData } from './metadata.js'
 
 export const CREATE = async (req, res, next) => {
   try {
@@ -9,8 +10,8 @@ export const CREATE = async (req, res, next) => {
     const result = await newPost.save()
     const { _id } = result
     const username = input.author
-
-    bitacora(_id, username)
+    await MetaData()
+    await bitacora(_id, username)
 
     res.send('ok')
   } catch (error) {
@@ -24,16 +25,16 @@ export const CREATE = async (req, res, next) => {
 export const UPDATE = async (req, res, next) => {
   try {
     const input = req.body
-    //  console.log('input:', input)
+    const { _id, author } = input
 
     const response = await Model.updateOne(
       {
-        _id: input._id
+        _id
       },
 
       { ...input }
     )
-
+    await bitacora(_id, author)
     // console.log('result', response)
 
     res.send('ok')
