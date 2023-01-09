@@ -60,58 +60,58 @@ export { app, server }
 //   console.log('value :>> ', person[key])
 // })
 
-const persons = [
-  {
-    name: 'carlos',
-    id: 1
-  },
-  {
-    name: 'walter',
-    id: 2
-  }
-]
+// const persons = [
+//   {
+//     name: 'carlos',
+//     id: 1
+//   },
+//   {
+//     name: 'walter',
+//     id: 2
+//   }
+// ]
 
-let person = null
-persons.forEach(element => {
-  if (element.name === 'carlos') person = element
-})
-console.log('person forEach :>> ', person)
+// let person = null
+// persons.forEach(element => {
+//   if (element.name === 'carlos') person = element
+// })
+// console.log('person forEach :>> ', person)
 
-for (let index = 0; index < persons.length; index += 1) {
-  const element = persons[index]
-  if (element.name === 'carlos') person = element
-}
-console.log('person for :>> ', person)
+// for (let index = 0; index < persons.length; index += 1) {
+//   const element = persons[index]
+//   if (element.name === 'carlos') person = element
+// }
+// console.log('person for :>> ', person)
 
-// functional
-const personObj = persons.find(element => {
-  if (element.name === 'carlos') return element
-})
-console.log('personObj :>> ', personObj)
-personObj.id = 3
+// // functional
+// const personObj = persons.find(element => {
+//   if (element.name === 'carlos') return element
+// })
+// console.log('personObj :>> ', personObj)
+// personObj.id = 3
 
-const personArray = persons.filter(element => {
-  if (element.id === 2) return element
-})
-console.log('personArray :>> ', personArray)
+// const personArray = persons.filter(element => {
+//   if (element.id === 2) return element
+// })
+// console.log('personArray :>> ', personArray)
 
-const personMap = persons.map(element => {
-  element.name = `${element.name} X `
+// const personMap = persons.map(element => {
+//   element.name = `${element.name} X `
 
-  return element
-})
-console.log('personMap :>> ', personMap)
+//   return element
+// })
+// console.log('personMap :>> ', personMap)
 
-const personReduce = persons.reduce((acc, element) => {
-  acc += element.id
+// const personReduce = persons.reduce((acc, element) => {
+//   acc += element.id
 
-  return acc
-}, 0)
-console.log('personReduce :>> ', personReduce)
+//   return acc
+// }, 0)
+// console.log('personReduce :>> ', personReduce)
 
-const personReduce2 = persons.reduce(
-  (acc, element) => (acc += `${element.name} `),
+// const personReduce2 = persons.reduce(
+//   (acc, element) => (acc += `${element.name} `),
 
-  ''
-)
-console.log('personReduce2 :>> ', personReduce2)
+//   ''
+// )
+// console.log('personReduce2 :>> ', personReduce2)

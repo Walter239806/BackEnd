@@ -30,7 +30,9 @@ const postSchema = new Schema(
       }
     }),
 
-    // TODO: al crear o actualizar un post debe agregar una bitacora.
+
+    // TODO✓: al crear o actualizar un post debe agregar una bitacora.
+    
     bitacora: [{ user: { type: String }, fecha: { type: Date } }]
   },
   {
