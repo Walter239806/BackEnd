@@ -16,7 +16,7 @@ export const loginJWT = async (req, res, next) => {
       if (validPassword) {
         const accessToken = createToken(Model)
         res.cookie('access-token', accessToken, { maxAge: 86400000 })
-        return res.send(user._id)
+        return res.send({ accessToken })
       }
     } else return res.send('Usuario o Contraseña inválidos')
   } catch (error) {
