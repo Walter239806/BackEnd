@@ -20,7 +20,7 @@ const postSchema = new Schema(
       type: String,
       required: [true, 'Text is required']
     },
-    // TODO: metadata se llena desde el api: CREATE / UPDATE
+    // TODO✓: metadata se llena desde el api: CREATE / UPDATE
     metadata: new Schema({
       hash: {
         type: String
@@ -30,9 +30,8 @@ const postSchema = new Schema(
       }
     }),
 
-
     // TODO✓: al crear o actualizar un post debe agregar una bitacora.
-    
+
     bitacora: [{ user: { type: String }, fecha: { type: Date } }]
   },
   {
