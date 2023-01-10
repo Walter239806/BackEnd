@@ -1,0 +1,51 @@
+config: 
+    target: "http://localhost:3001"
+    plugins: 
+      expect: {}
+    
+    ensure:
+      p99: 200
+      maxErrorRate: 5
+
+    phases: 
+        - name: Warm UP   
+          duration: 3
+          arrivalRate: 20
+
+        - name: Ramping UP
+          duration: 30
+          arrivalRate: 20 
+          rampTo: 5
+        
+        # - name: Load
+        #   duration: 30
+        #   arrivalRate: 100
+
+    variables:
+      username: "carlos@mail.com"
+      password: "11111111"
+
+before: 
+    flow:
+        - log: "Get Auth token"
+        - post: 
+            url: "/user/JWT"
+            json: 
+                username: "{{username}}"
+                password: "{{password}}"
+            capture:
+                 - json: $.accessToken
+                   as: token
+        - log: "Access Token: {{token}}"
+
+scenarios: 
+    - name: "Read All Posts"
+      flow: 
+        - get:
+            url: "/post/readAll"
+            cookie: 
+                "access-token": "{{token}}"
+
+            expect:
+              - statusCode: 200
+                
