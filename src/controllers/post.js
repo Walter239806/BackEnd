@@ -83,32 +83,24 @@ export const READBYID = async (req, res, next) => {
 export const updateB = async (req, res, next) => {
   const input = req.body
   console.log('HOLAAAAAAAAAAA', input)
-  const find = await Model.updateOne(
+  const find = await Model.findOneAndUpdate(
     {
       _id: input._id,
-      'bitacora._id': input.bitacora
+      bitacora: { $elemMatch: { user: input.bitacora } }
     },
     {
-      $set: {}
+      $set: {
+        'bitacora.$[i].user': input.username,
+        'bitacora.$[i].fecha': new Date()
+      }
+    },
+    {
+      arrayFilters: [{ 'i.user': { $eq: input.bitacora } }],
+      new: true
     }
   )
-
-  const data = {
-    user: input.username,
-    fecha: new Date()
-  }
-  console.log('arrayI', JSON.stringify(find, null, 2))
-
-  // const newBitacora = await Model.updateOne(
-  //   {
-  //     // _id: arrayI._id
-  //   },
-  //   {
-  //     $set : { bitacora: data }
-  //   }
-  // )
-  // return console.log('Bitacora added:', newBitacora)
-  res.send('hola')
+  console.log('UPDATE', JSON.stringify(find, null, 2))
+  res.send('ok')
 }
 
 export const createValidation = [
