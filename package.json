@@ -5,14 +5,15 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/main.js --ext js",
+    "dev": "nodemon src/main.js --ext js --exec babel-node",
     "prepare": "husky install",
     "test": "NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --detectOpenHandles --verbose",
-    "test:watch":"npm run test -- --watch"
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Walter Fonseca",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.20.7",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
@@ -26,6 +27,11 @@
     "winston": "^3.8.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/node": "^7.20.7",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.20.2",
     "eslint": "^8.30.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -38,6 +44,18 @@
     "prettier": "^2.8.1",
     "supertest": "^6.3.3"
   },
+  
+    "babel": {
+      "presets":[
+        "@babel/preset-env"
+    ],
+    "plugins":[
+      ["@babel/plugin-transform-runtime",{
+        "regenenator":true
+      }]
+    ]
+    }
+  ,
   "prettier": {
     "trailingComma": "none",
     "bracketSpacing": true,
@@ -57,6 +75,11 @@
     "printWidth": 150
   },
   "eslintConfig": {
+    "parserOptions": {
+      "parser":"babel-eslint",
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
     "extends": [
       "airbnb-base",
       "prettier"
@@ -64,8 +87,8 @@
     "plugins": [
       "prettier"
     ],
-    "env":{
-      "jest":true
+    "env": {
+      "jest": true
     },
     "rules": {
       "no-debugger": 1,
@@ -162,12 +185,13 @@
       "prettier --write",
       "eslint --fix"
     ]
-  },"jest": {
+  },
+  "jest": {
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ],
-    "transform":{},
+    "transform": {},
     "setupFilesAfterEnv": [
       "./jest-preload-env.js"
     ]
