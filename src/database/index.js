@@ -2,7 +2,7 @@ import mongoose, { mongo } from 'mongoose'
 import config from '../config/index.js'
 import { logger } from '../tools/basiclogs.js'
 
-mongoose.set('debug', true)
+mongoose.set('debug', false)
 
 export default {
   setConnection() {
