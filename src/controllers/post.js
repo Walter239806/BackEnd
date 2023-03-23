@@ -71,6 +71,7 @@ export const READBYID = async (req, res, next) => {
   try {
     const { _id } = req.body
     const find = await Model.findById(_id)
+    console.log(find)
     return res.send(find)
   } catch (error) {
     return next({
