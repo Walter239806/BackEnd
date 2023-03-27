@@ -25,7 +25,7 @@ router.post('/post/create', validateTokenC, postController.createValidation, val
 router.post('/post/update', validateTokenC, postController.updateValidation, validate, postController.UPDATE)
 router.post('/post/updateB', postController.updateB)
 
-router.get('/post/readAll', validateTokenC, postController.READALL)
+router.get('/post/readAll', postController.READALL)
 router.post(
   '/post/readByID',
   // validateTokenC, postController.readByIDValidation, validate,

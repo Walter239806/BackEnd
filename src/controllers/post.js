@@ -57,7 +57,9 @@ export const UPDATE = async (req, res, next) => {
 
 export const READALL = async (req, res, next) => {
   try {
-    const find = await Model.find()
+    console.log('💣💣💣')
+    const find = await Model.find({}, { title: 1, author: 1, createdAt: 1 })
+    console.log('Aqui estoy')
     return res.send(find)
   } catch (error) {
     return next({

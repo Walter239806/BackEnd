@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import config from '../config/index.js'
 
 export const createToken = Model => {
-  const access = jwt.sign({ username: Model.username, _id: Model._id }, config.JWTSecret, { expiresIn: '30s' })
+  const access = jwt.sign({ username: Model.username, _id: Model._id }, config.JWTSecret, { expiresIn: '1D' })
   return access
 }
 
