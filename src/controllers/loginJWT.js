@@ -5,7 +5,6 @@ import { createToken } from '../middlewares/JWT.js'
 
 export const loginJWT = async (req, res, next) => {
   try {
-    console.log('Session')
     // eslint-disable-next-line no-promise-executor-return
     await new Promise(resolve => setTimeout(resolve, 3000))
 
@@ -19,7 +18,6 @@ export const loginJWT = async (req, res, next) => {
 
       if (validPassword) {
         const accessToken = createToken(user)
-        res.cookie('access-token', accessToken, { maxAge: 86400000 })
         return res.send({ accessToken })
       }
     }
