@@ -5,7 +5,7 @@ import * as postController from '../controllers/post.js'
 import { CREATEUSR, UPDATEUSR, DELETEUSR } from '../controllers/user.js'
 import { changePass } from '../controllers/changepassword.js'
 import { login } from '../controllers/login.js'
-// import checkToken from '../middlewares/token.js'
+import checkToken from '../middlewares/token.js'
 import validateTokenC from '../middlewares/JWT.js'
 import * as usrValidation from '../middlewares/validator.js'
 import { validate } from '../middlewares/validate.js'
@@ -25,7 +25,7 @@ router.post('/post/create', validateTokenC, postController.createValidation, val
 router.post('/post/update', validateTokenC, postController.updateValidation, validate, postController.UPDATE)
 router.post('/post/updateB', postController.updateB)
 
-router.get('/post/readAll', postController.READALL)
+router.get('/post/readAll', validateTokenC, postController.READALL)
 router.post(
   '/post/readByID',
   // validateTokenC, postController.readByIDValidation, validate,

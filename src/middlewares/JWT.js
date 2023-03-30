@@ -25,21 +25,34 @@ export const createToken = Model => {
 //   }
 // }
 
-const validateTokenC = (req, res, next) => {
+const validateTokenC = async (req, res, next) => {
   try {
-    const accessToken = req.cookies['access-token']
-    if (!accessToken)
+    const accessToken = req.headers.authorization
+    console.log('accessToken', accessToken)
+    if (!accessToken) {
       return next({
         status: 498,
         code: 2001,
         message: `TOKEN indefinido desde ${req.protocol}://${req.get('host')}${req.originalUrl}`,
         userMessage: `Token indefinido`
       })
+    }
 
-    const validToken = jwt.verify(accessToken, config.JWTSecret)
+    console.log('accessToken', accessToken)
+    const bearer = accessToken.split(' ')
+    const token = bearer[1]
+
+    const validToken = await jwt.verify(token, config.JWTSecret)
+
     if (validToken) {
       return next()
     }
+    return next({
+      status: 498,
+      code: 2001,
+      message: `TOKEN invalido desde ${req.protocol}://${req.get('host')}${req.originalUrl}`,
+      userMessage: `Token invalido`
+    })
   } catch (error) {
     return {
       Code: 400,
