@@ -20,6 +20,9 @@ const postSchema = new Schema(
       type: String,
       required: [true, 'Text is required']
     },
+    coverImage: {
+      type: String
+    },
     metadata: new Schema({
       hash: {
         type: String

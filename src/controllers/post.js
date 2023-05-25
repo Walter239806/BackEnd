@@ -58,7 +58,7 @@ export const UPDATE = async (req, res, next) => {
 export const READALL = async (req, res, next) => {
   try {
     console.log('💣💣💣')
-    const find = await Model.find({}, { title: 1, author: 1, createdAt: 1 })
+    const find = await Model.find({}, { title: 1, author: 1, createdAt: 1, coverImage: 1 })
     console.log('Aqui estoy')
     return res.send(find)
   } catch (error) {
@@ -72,8 +72,8 @@ export const READALL = async (req, res, next) => {
 export const READBYID = async (req, res, next) => {
   try {
     const { _id } = req.body
+    console.log('🚀🚀🚀', _id)
     const find = await Model.findById(_id)
-    console.log(find)
     return res.send(find)
   } catch (error) {
     return next({
@@ -85,7 +85,6 @@ export const READBYID = async (req, res, next) => {
 
 export const updateB = async (req, res, next) => {
   const input = req.body
-  console.log('HOLAAAAAAAAAAA', input)
   const find = await Model.findOneAndUpdate(
     {
       _id: input._id,
