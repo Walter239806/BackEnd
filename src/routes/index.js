@@ -21,12 +21,14 @@ router.get('/healthcheck', (_, res) => {
   })
 })
 
-router.post('/post/create', validateTokenC, postController.createValidation, validate, postController.CREATE)
-router.post('/post/update', validateTokenC, postController.updateValidation, validate, postController.UPDATE)
+router.post('/post/create', postController.CREATE)
+router.post('/post/update', postController.UPDATE)
 router.post('/post/updateB', postController.updateB)
+router.post('/post/delete', postController.DELETE)
 
-router.get('/post/readAll', validateTokenC, postController.READALL)
-router.post('/post/readByID', validateTokenC, postController.readByIDValidation, validate, postController.READBYID)
+router.get('/post/readAll', postController.READALL)
+router.get('/post/readAllActive', postController.READALLACTIVE)
+router.post('/post/readByID', postController.readByIDValidation, validate, postController.READBYID)
 
 // router.users
 router.post('/user/create', usrValidation.vUSRCreate, validate, CREATEUSR)
