@@ -44,7 +44,6 @@ export const UPDATE = async (req, res, next) => {
       { ...input }
     )
     await bitacora(_id, author)
-    // console.log('result', response)
 
     res.send('ok')
   } catch (error) {
@@ -57,9 +56,21 @@ export const UPDATE = async (req, res, next) => {
 
 export const READALL = async (req, res, next) => {
   try {
-    console.log('💣💣💣')
-    const find = await Model.find({}, { title: 1, author: 1, createdAt: 1, coverImage: 1 })
-    console.log('Aqui estoy')
+    const find = await Model.find({}, { title: 1, author: 1, createdAt: 1, description: 1 })
+
+    return res.send(find)
+  } catch (error) {
+    return next({
+      code: 502,
+      message: error.message
+    })
+  }
+}
+
+export const READALLACTIVE = async (req, res, next) => {
+  try {
+    const find = await Model.find({ state: true }, { title: 1, author: 1, createdAt: 1, description: 1 })
+
     return res.send(find)
   } catch (error) {
     return next({
@@ -72,7 +83,6 @@ export const READALL = async (req, res, next) => {
 export const READBYID = async (req, res, next) => {
   try {
     const { _id } = req.body
-    console.log('🚀🚀🚀', _id)
     const find = await Model.findById(_id)
     return res.send(find)
   } catch (error) {
@@ -101,8 +111,24 @@ export const updateB = async (req, res, next) => {
       new: true
     }
   )
-  console.log('UPDATE', JSON.stringify(find, null, 2))
   res.send('ok')
+}
+
+export const DELETE = async (req, res, next) => {
+  try {
+    const _id = req.body
+
+    const response = await Model.deleteOne({
+      _id
+    })
+
+    return res.send({ response: !!response.deletedCount })
+  } catch (error) {
+    return next({
+      Code: 503,
+      message: error.message
+    })
+  }
 }
 
 export const createValidation = [

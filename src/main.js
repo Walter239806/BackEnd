@@ -8,10 +8,11 @@ import { errorHandler } from './middlewares/basicErrorHandlers.js'
 import { logger } from './tools/basiclogs.js'
 import config from './config/index.js'
 import database from './database/index.js'
+
 // middleware
 const app = express()
 
-app.use(express.json())
+app.use(express.json({ size: '10mb' }))
 app.use(cors())
 app.use(compression())
 app.use(helmet())
@@ -50,6 +51,21 @@ const server = app.listen(config.NODE_PORT, () => {
 })
 
 export { app, server }
+
+// const blk = async () => {
+//   console.time('start')
+//   const find1 = Model.find({}, { title: 1, author: 1, createdAt: 1 })
+//   const find2 = Model.find({}, { title: 1, author: 1, createdAt: 1 })
+//   const find3 = Model.find({}, { title: 1, author: 1, createdAt: 1 })
+
+//   Promise.all([find1, find2, find3]).then(result => {
+//     console.log('result :>> ', result)
+//     console.timeEnd('start')
+//   })
+
+// }
+
+// blk()
 // const person = {
 //   name: 'Carlos',
 //   id: 1

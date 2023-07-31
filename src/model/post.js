@@ -16,6 +16,10 @@ const postSchema = new Schema(
       type: Boolean,
       default: true
     },
+    description: {
+      type: String,
+      required: [true, 'Description is required']
+    },
     body: {
       type: String,
       required: [true, 'Text is required']
