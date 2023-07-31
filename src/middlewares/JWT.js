@@ -28,7 +28,7 @@ export const createToken = Model => {
 const validateTokenC = async (req, res, next) => {
   try {
     const accessToken = req.headers.authorization
-    console.log('accessToken', accessToken)
+    console.log('accessToken2', accessToken)
     if (!accessToken) {
       return next({
         status: 498,
@@ -38,7 +38,7 @@ const validateTokenC = async (req, res, next) => {
       })
     }
 
-    console.log('accessToken', accessToken)
+    console.log('accessToken-1', accessToken)
     const bearer = accessToken.split(' ')
     const token = bearer[1]
 

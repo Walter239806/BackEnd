@@ -1,14 +1,13 @@
 import { logger } from '../tools/basiclogs.js'
 
 export const errorHandler = (err, req, res, next) => {
-  logger.error('error message= ', err.message)
-  logger.error('error code= ', err.code)
+  // logger
+  err.message = err.message && Object.keys(err.message).length ? JSON.stringify(err.message, null, 2) : err.message
 
-  // console.log("err.message = ", err.message);
-  // console.log("err.code = ", err.code);
-
-  return res.status(505).send({
-    errorCode: err.code,
-    errorMessage: err.message
-  })
+  logger.error(`[${err.code}] ${err.userMessage || ''} [${err.message || '...'}]. (${req.originalUrl} - ${req.method} - ${req.ip})`)
+  // user message
+  err.message =
+    req.app.get('env') === 'dev' || req.app.get('env') === 'development' ? `${err.userMessage || ''} [${err.message || '...'}]` : err.userMessage
+  // send response
+  return res.status(err.status || 500).send({ errorCode: err.code, errorMessage: err.message })
 }

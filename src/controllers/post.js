@@ -1,7 +1,7 @@
 import { check, oneOf } from 'express-validator'
 import Model from '../model/post.js'
 import { bitacora } from './bitacora.js'
-import { MetaData } from './metadata.js'
+import { logger } from '../tools/basiclogs.js'
 
 export const CREATE = async (req, res, next) => {
   try {
@@ -58,6 +58,7 @@ export const UPDATE = async (req, res, next) => {
 export const READALL = async (req, res, next) => {
   try {
     console.log('💣💣💣')
+
     const find = await Model.find({}, { title: 1, author: 1, createdAt: 1 })
     console.log('Aqui estoy')
     return res.send(find)
@@ -72,8 +73,9 @@ export const READALL = async (req, res, next) => {
 export const READBYID = async (req, res, next) => {
   try {
     const { _id } = req.body
+    console.log('_id', _id)
     const find = await Model.findById(_id)
-    console.log(find)
+    console.log('find', find)
     return res.send(find)
   } catch (error) {
     return next({

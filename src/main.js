@@ -8,10 +8,12 @@ import { errorHandler } from './middlewares/basicErrorHandlers.js'
 import { logger } from './tools/basiclogs.js'
 import config from './config/index.js'
 import database from './database/index.js'
+import Model from './model/post.js'
+
 // middleware
 const app = express()
 
-app.use(express.json())
+app.use(express.json({ size: '10mb' }))
 app.use(cors())
 app.use(compression())
 app.use(helmet())
@@ -28,6 +30,22 @@ process.on('unhandledRejection', error => {
   logger.error('unhandledRejection! :', error)
   process.exit(1)
 })
+
+function gracefulshutdown() {
+  console.log('Shutting down')
+  app.close(() => {
+    // express app
+    console.log('HTTP server closed.')
+
+    // When server has stopped accepting
+    // connections exit the process with
+    // exit status 0
+    process.exit(0)
+  })
+}
+
+process.on('SIGTERM', gracefulshutdown)
+// process.on('SIGKILL', gracefulshutdown)
 
 // Listener WebServer Express
 // const NODE_PORT = 3001;
@@ -50,6 +68,42 @@ const server = app.listen(config.NODE_PORT, () => {
 })
 
 export { app, server }
+const blk = async () => {
+  console.time('start')
+  // const find1 = Model.find({}, { title: 1, author: 1, createdAt: 1 })
+  // const find2 = Model.find({}, { title: 1, author: 1, createdAt: 1 })
+  // const find3 = Model.find({}, { title: 1, author: 1, createdAt: 1 })
+
+  const title = ['test1', 'Jest3', 'Jest10', 'sdsad']
+
+  const dbQuery = title.map(element => Model.find({ title: element }))
+
+  Promise.all(dbQuery).then(result => {
+    console.log('result', result)
+    console.timeEnd('start')
+  })
+  console.log('FIN DEL CODIGO 📆')
+}
+// blk()
+
+// blcking event loop
+// const blk = async () => {
+//   const find1 = Model.find({}, { title: 1, author: 1, createdAt: 1 })
+//   const find2 = Model.find({}, { title: 1, author: 1, createdAt: 1 })
+//   const find3 = Model.find({}, { title: 1, author: 1, createdAt: 1 })
+
+//   Promise.all([find1, find2, find3]).then(result => {
+//     console.log('result', result)
+//   })
+// }
+// blk()
+
+// const accessLevel = 'user'
+
+// if (accessLevel != 'userRLO LRI// Check if adminPDI IRI') {
+//   console.log('You are an admin.')
+// }
+
 // const person = {
 //   name: 'Carlos',
 //   id: 1

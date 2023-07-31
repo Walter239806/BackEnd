@@ -9,12 +9,29 @@ import checkToken from '../middlewares/token.js'
 import validateTokenC from '../middlewares/JWT.js'
 import * as usrValidation from '../middlewares/validator.js'
 import { validate } from '../middlewares/validate.js'
+import { logger } from '../tools/basiclogs.js'
 
 const router = express.Router()
 const APP_NAME = 'nodejs app'
 const APP_VERSION = '1.0.0'
 
 router.get('/healthcheck', (_, res) => {
+  // logger.info('Mensaje informativo')
+  // logger.debug('debug para casos de busquedas de información mas precisa')
+  // logger.warn('advertencias en el código')
+  // logger.error('mensajes de error', "xxxxxxx")
+  // logger.error('mensajes de error', { a: '132' })
+
+  logger.profile('test', { level: 'info' })
+
+  // inicia el contador
+  const profiler = logger.startTimer()
+
+  setTimeout(() => {
+    // finaliza el contador y registra duración
+    profiler.done({ message: 'Logging message' })
+  }, 5000)
+
   res.send({
     app: APP_NAME,
     version: APP_VERSION
@@ -25,8 +42,11 @@ router.post('/post/create', validateTokenC, postController.createValidation, val
 router.post('/post/update', validateTokenC, postController.updateValidation, validate, postController.UPDATE)
 router.post('/post/updateB', postController.updateB)
 
-router.get('/post/readAll', validateTokenC, postController.READALL)
-router.post('/post/readByID', validateTokenC, postController.readByIDValidation, validate, postController.READBYID)
+router.get('/post/readAll', postController.READALL)
+// router.post('/post/readByID', validateTokenC, postController.readByIDValidation, validate, postController.READBYID)
+
+router.get('/post/readonly-posts', postController.READALL)
+router.post('/post/readById', postController.READBYID)
 
 // router.users
 router.post('/user/create', usrValidation.vUSRCreate, validate, CREATEUSR)
