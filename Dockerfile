@@ -6,7 +6,7 @@ COPY package*.json .
 RUN npm ci
 RUN npm prune --production && node-prune
 
-FROM node:18-alpine3.17
+FROM node:20-alpine3.17
 RUN apk add dumb-init
 WORKDIR /usr/src/app
 
