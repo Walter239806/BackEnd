@@ -29,8 +29,10 @@ export default {
           wtimeout: 5000
         }
       })
-      .catch(() => {
-        console.log('error 💥')
+      .catch(error => {
+        console.log('Connection error 💥', error)
+
+        process.exit(1)
       })
   }
 }
