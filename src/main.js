@@ -45,7 +45,6 @@ function gracefulshutdown() {
 }
 
 process.on('SIGTERM', gracefulshutdown)
-// process.on('SIGKILL', gracefulshutdown)
 
 // Listener WebServer Express
 // const NODE_PORT = 3001;
